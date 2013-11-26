@@ -1,9 +1,17 @@
 <h1>Blog Post</h1>
+<tr>Tags</tr>
 
 <div>
   <% @blogs.each do |blog| %>
     <div class="title"> <h2><%= blog.title %><h2></div>
     <div class="content"> <%= blog.content %></div>
+   <div>
+    <% blog.tags.each do |tag|%>
+      <%= tag.name %>
+    <% end %>
+   </div>
+    
+    <blog.comments.count>
     <div class= "tags"> <%= link_to 'Comment', blog %> <%= link_to 'Edit', edit_blog_path(blog) %> <%= link_to 'Delete', blog, method: :delete, data: { confirm: 'Are you sure?' } %></div> 
     <hr>
   <%end%>
